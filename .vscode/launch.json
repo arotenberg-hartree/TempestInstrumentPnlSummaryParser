@@ -11,7 +11,7 @@
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
             "program": "${workspaceFolder}/TempestInstrumentPnlSummaryParser/bin/Debug/netcoreapp3.1/TempestInstrumentPnlSummaryParser.dll",
-            "args": ["run", "2020-11-09", "2020-11-11"],
+            "args": ["run", "2020-09-11", "2020-11-11", "c:\\tmp\\output.csv"],
             "cwd": "${workspaceFolder}/TempestInstrumentPnlSummaryParser",
             // For more information about the 'console' field, see https://aka.ms/VSCode-CS-LaunchJson-Console
             "console": "internalConsole",
