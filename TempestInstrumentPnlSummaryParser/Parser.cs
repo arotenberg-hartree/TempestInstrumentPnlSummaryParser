@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -13,9 +14,12 @@ namespace TempestInstrumentPnlSummaryParser
             this.logger = logger;
             this.settings = settings;
         }
-        public void Run()
+        public void Run(DateTime startDate, DateTime endDate)
         {
             logger.LogInformation("Running from base folder: {baseFolder}", settings.Value.ReportBaseFolder);
+            logger.LogInformation("Start Date: {startDate:yyyy-MM-dd}", startDate);
+            logger.LogInformation("End Date: {endDate:yyyy-MM-dd}", endDate);
+            
         }
     }
 }
