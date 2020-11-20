@@ -63,10 +63,20 @@ namespace TempestInstrumentPnlSummaryParser
                 if (!double.TryParse(sheet.Cells[row, 3].GetValue<string>(), out double realizedLtd)) continue;
                 if (!double.TryParse(sheet.Cells[row, 4].GetValue<string>(), out double finalizedLtd)) continue;
 
-                if (unrealizedLtd == 0 && realizedLtd == 0 && finalizedLtd == 0) continue;
+                if (!double.TryParse(sheet.Cells[row, 6].GetValue<string>(), out double unrealizedDtd)) continue;
+                if (!double.TryParse(sheet.Cells[row, 7].GetValue<string>(), out double realizedDtd)) continue;
+                if (!double.TryParse(sheet.Cells[row, 8].GetValue<string>(), out double finalizedDtd)) continue;
+
+                if (!double.TryParse(sheet.Cells[row, 10].GetValue<string>(), out double unrealizedMtd)) continue;
+                if (!double.TryParse(sheet.Cells[row, 11].GetValue<string>(), out double realizedMtd)) continue;
+                if (!double.TryParse(sheet.Cells[row, 12].GetValue<string>(), out double finalizedMtd)) continue;
+
+                if (!double.TryParse(sheet.Cells[row, 13].GetValue<string>(), out double unrealizedYtd)) continue;
+                if (!double.TryParse(sheet.Cells[row, 14].GetValue<string>(), out double realizedYtd)) continue;
+                if (!double.TryParse(sheet.Cells[row, 15].GetValue<string>(), out double finalizedYtd)) continue;
 
                 count++;
-                yield return new Row(file.Date, instrument, unrealizedLtd, realizedLtd, finalizedLtd);
+                yield return new Row(file.Date, instrument, unrealizedLtd, realizedLtd, finalizedLtd, unrealizedDtd, realizedDtd, finalizedDtd, unrealizedMtd, realizedMtd, finalizedMtd, unrealizedYtd, realizedYtd, finalizedYtd);
             }
 
             logger.LogInformation("Finished processing spreadsheet {file}.  Found {count} rows.", file.File, count);
